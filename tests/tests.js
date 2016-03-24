@@ -45,7 +45,7 @@ describe("arrow.js", function() {
     arr.second(arr(inc)).
       run({a: 1, b: 1}).should.be.eql({a: 1, b: 2});
   });
-  
+
   it("#second(arr)", function() {
     arr(inc).second().
       run({a: 1, b: 1}).should.be.eql({a: 1, b: 2});
@@ -61,5 +61,17 @@ describe("arrow.js", function() {
   it("#bifur(arrB)", function() {
     arr(function(c) { return "label: " + c; }).
       bifur(arr(inc)).run(1).should.be.eql({a: "label: 1",  b: 2});
+  });
+
+  it("Arrow#prod(arrA, arrB)", function() {
+    arr.prod(
+      arr(function(c) { return "label: " + c; }),
+      arr(inc)
+    ).run({a: 1, b: 1}).should.be.eql({a: "label: 1",  b: 2});
+  });
+
+  it("#prod(arrA, arrB)", function() {
+    arr(function(c) { return "label: " + c; }).prod(arr(inc)).
+      run({a: 1, b: 1}).should.be.eql({a: "label: 1",  b: 2});
   });
 });

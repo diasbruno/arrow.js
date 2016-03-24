@@ -75,4 +75,23 @@ Arrow.bifur = function(a, b) {
   });
 };
 
+Arrow.prototype.prod = function(b) {
+  var s = this.run;
+  return Arrow(function(pair) {
+    return {
+      a: s(pair.a),
+      b: b.run(pair.b)
+    };
+  });
+};
+
+Arrow.prod = function(a, b) {
+  return Arrow(function(pair) {
+    return {
+      a: a.run(pair.a),
+      b: b.run(pair.b)
+    };
+  });
+};
+
 module.exports = Arrow;
