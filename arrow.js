@@ -1,20 +1,9 @@
+var tagged = require('daggy').tagged;
 
 // arr :: (b -> c) -> A b c
-function Arrow(f) {
-  if (!(this instanceof Arrow)) {
-    return new Arrow(f);
-  }
+var Arrow = tagged('run');
 
-  this.f = function(v) {
-    return f(v);
-  };
-
-  return this;
-}
-
-Arrow.prototype.run = function(v) {
-  return this.f(v);
-};
+Arrow['of'] = Arrow;
 
 Arrow.prototype.lift = function(f) {
   return Arrow(f);
@@ -38,7 +27,7 @@ Arrow.next = function(a, b) {
 };
 
 Arrow.prototype.first = function(pair) {
-  var s = this.f;
+  var s = this.run;
   return Arrow(function() {
     return {
       a: s(pair.a),
@@ -57,7 +46,7 @@ Arrow.first = function(arr) {
 };
 
 Arrow.prototype.second = function(arr) {
-  var s = this.f;
+  var s = this.run;
   return Arrow(function(pair) {
     return {
       a: pair.a,
@@ -76,7 +65,7 @@ Arrow.second = function(arr) {
 };
 
 Arrow.prototype.bifur = function(b) {
-  var s = this.f;
+  var s = this.run;
   return Arrow(function(v) {
     return {
       a: s(v),
