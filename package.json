@@ -1,18 +1,23 @@
 {
-  "name": "arrowjs",
-  "version": "0.1.2",
-  "description": "Arrows in javascript.",
-  "main": "arrow.js",
-  "scripts": {
-    "test": "mocha tests/tests.js -w"
-  },
-  "author": "Bruno Dias",
-  "license": "MIT",
-  "devDependencies": {
-    "mocha": "^2.4.5",
-    "should": "^8.3.0"
-  },
-  "dependencies": {
-    "daggy": "0.0.1"
-  }
+    "name": "arrowjs",
+    "version": "0.1.2",
+    "description": "Arrows in javascript.",
+    "main": "arrow.js",
+    "scripts": {
+        "test": "mocha tests/tests.js -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/diasbruno/arrowjs.git"
+    },
+    "keywords": ["arrows", "functional"],
+    "author": "Bruno Dias",
+    "license": "MIT",
+    "devDependencies": {
+        "mocha": "^2.4.5",
+        "should": "^8.3.0"
+    },
+    "dependencies": {
+        "daggy": "0.0.1"
+    }
 }
