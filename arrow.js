@@ -5,14 +5,6 @@ var Arrow = tagged('run');
 
 Arrow['of'] = Arrow;
 
-Arrow.prototype.lift = function(f) {
-  return Arrow(f);
-};
-
-Arrow.lift = function(f) {
-  return Arrow(f);
-};
-
 Arrow.prototype.next = function(b) {
   var s = this;
   return Arrow(function(v) {

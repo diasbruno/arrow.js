@@ -1,6 +1,6 @@
 {
   "name": "arrowjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Arrows in javascript.",
   "main": "arrow.js",
   "scripts": {
