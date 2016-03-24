@@ -1,6 +1,6 @@
 {
-    "name": "arrowjs",
-    "version": "0.1.3",
+    "name": "arrow.js",
+    "version": "0.1.4",
     "description": "Arrows in javascript.",
     "main": "arrow.js",
     "scripts": {
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/diasbruno/arrowjs.git"
+        "url": "git+https://github.com/diasbruno/arrow.js.git"
     },
     "keywords": ["arrows", "functional"],
     "author": "Bruno Dias",
