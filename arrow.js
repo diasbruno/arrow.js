@@ -1,4 +1,5 @@
 var tagged = require('daggy').tagged;
+var Pair = require('fantasy-tuples').Tuple2;
 
 // arr :: (b -> c) -> A b c
 var Arrow = tagged('run');
@@ -37,10 +38,7 @@ Arrow.prototype.first = function() {
  */
 Arrow.first = function(arr) {
   return Arrow(function(pair) {
-    return {
-      a: arr.run(pair.a),
-      b: pair.b
-    };
+    return Pair(arr.run(pair._1), pair._2);
   });
 };
 
@@ -57,10 +55,7 @@ Arrow.prototype.second = function() {
  */
 Arrow.second = function(arr) {
   return Arrow(function(pair) {
-    return {
-      a: pair.a,
-      b: arr.run(pair.b)
-    };
+    return Pair(pair._1, arr.run(pair._2));
   });
 };
 
@@ -79,10 +74,7 @@ Arrow.prototype.bifur = function(b) {
  */
 Arrow.bifur = function(a, b) {
   return Arrow(function(v) {
-    return {
-      a: a.run(v),
-      b: b.run(v)
-    };
+    return Pair(a.run(v), b.run(v));
   });
 };
 
@@ -99,10 +91,7 @@ Arrow.prototype.prod = function(b) {
  */
 Arrow.prod = function(a, b) {
   return Arrow(function(pair) {
-    return {
-      a: a.run(pair.a),
-      b: b.run(pair.b)
-    };
+    return Pair(a.run(pair._1), b.run(pair._2));
   });
 };
 

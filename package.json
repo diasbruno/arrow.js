@@ -1,6 +1,6 @@
 {
     "name": "arrow.js",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Arrows in javascript.",
     "main": "arrow.js",
     "scripts": {
@@ -10,7 +10,10 @@
         "type": "git",
         "url": "git+https://github.com/diasbruno/arrow.js.git"
     },
-    "keywords": ["arrows", "functional"],
+    "keywords": [
+        "arrows",
+        "functional"
+    ],
     "author": "Bruno Dias",
     "license": "MIT",
     "devDependencies": {
@@ -18,6 +21,7 @@
         "should": "^8.3.0"
     },
     "dependencies": {
-        "daggy": "0.0.1"
+        "daggy": "0.0.1",
+        "fantasy-tuples": "0.0.1"
     }
 }
