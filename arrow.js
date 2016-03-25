@@ -95,4 +95,22 @@ Arrow.prod = function(a, b) {
   });
 };
 
+/**
+ * Given a predicate and an arrow, if the predicate returns false,
+ * execute the self arrow, otherwise, execute the other arrow.
+ */
+Arrow.prototype.branch = function(pred, arr) {
+  return Arrow.branch(pred, this, arr);
+};
+
+/**
+ * Given a predicate and tow arrows, if the predicate returns false,
+ * execute the first arrow, otherwise, execute the other arrow.
+ */
+Arrow.branch = function(pred, arrA, arrB) {
+  return Arrow(function(v) {
+    return !pred(v) ? arrA.run(v) : arrB.run(v);
+  });
+};
+
 module.exports = Arrow;

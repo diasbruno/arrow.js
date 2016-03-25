@@ -76,4 +76,28 @@ describe("arrow.js", function() {
     arr.next(arr(dbl),arr(decr)).
       run(2).should.be.eql(3);
   });
+
+  it("Arrow#branch(pred, arrB) run self branch", function() {
+    arr(inc).branch(function(x) {
+      return x > 2;
+    }, arr(decr)).run(1).should.be.eql(2);
+  });
+
+  it("Arrow#branch(pred, arrB) run arrB", function() {
+    arr(inc).branch(function(x) {
+      return x > 2;
+    }, arr(decr)).run(3).should.be.eql(2);
+  });
+
+  it("#branch(pred, arrB) run self branch", function() {
+    arr.branch(function(x) {
+      return x > 2;
+    }, arr(inc), arr(decr)).run(1).should.be.eql(2);
+  });
+
+  it("#branch(pred, arrB) run arrB", function() {
+    arr.branch(function(x) {
+      return x > 2;
+    }, arr(inc), arr(decr)).run(3).should.be.eql(2);
+  });
 });
