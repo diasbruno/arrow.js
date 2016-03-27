@@ -1,7 +1,7 @@
 arrowjs
 =======
 
-John Hughes' arrows.
+Arrow library for javascript inpired by haskell arrows and FRP.Yampa.
 
 ## Usage
 
